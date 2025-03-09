@@ -1,12 +1,11 @@
-# React + Vite
+# 리엑트 스터디
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 공부하는 개발자 모임
 
-Currently, two official plugins are available:
+# 규칙
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 일요일 5시까지 원본의 본인 브랜치에 Pull Request 한다.
+- 파트너는 Pull Request 메뉴에서 올라온 코드를 리뷰해준다.
+  ![alt text](image.png)
+- 메뉴를 누르고 코드를 클릭하시면 코드에 코멘트 할 수 있습니다.
+- Merge는 월요일 진행예정
