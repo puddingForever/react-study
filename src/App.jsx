@@ -11,11 +11,14 @@ function App() {
     duration: 10,
   });
 
+  const isValidInput = Object.values(inputValue).every((v) => v >= 1);
+
   return (
     <>
       <Header />
       <UserInput inputValue={inputValue} setUserValue={setUserValue} />
-      <ListTable inputValue={inputValue} />
+      {!isValidInput && <p className="center">0보다 큰 값을 입력해주세요</p>}
+      {isValidInput && <ListTable inputValue={inputValue} />}
     </>
   );
 }
