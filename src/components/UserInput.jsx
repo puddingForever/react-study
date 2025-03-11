@@ -9,7 +9,11 @@ export default function UserInput({ label, inputValue, setUserValue, ...props })
     <article id="user-input">
       <div className="input-group">
         <div>
-          <label htmlFor={names[0]}>INITIAL INVESTMENT</label>
+          <label htmlFor={names[0]}>
+            초기 투자 금액
+            <br />
+            INITIAL INVESTMENT
+          </label>
           <input
             type="number"
             name={names[0]}
@@ -20,7 +24,11 @@ export default function UserInput({ label, inputValue, setUserValue, ...props })
           />
         </div>
         <div>
-          <label htmlFor={names[1]}>ANNUAL INVESTMENT</label>
+          <label htmlFor={names[1]}>
+            매년 투자 금액
+            <br />
+            ANNUAL INVESTMENT
+          </label>
           <input
             type="number"
             name={names[1]}
@@ -33,7 +41,11 @@ export default function UserInput({ label, inputValue, setUserValue, ...props })
       </div>
       <div className="input-group">
         <div>
-          <label htmlFor={names[2]}>INITIAL INVESTMENT</label>
+          <label htmlFor={names[2]}>
+            예상 연간 수익률
+            <br />
+            EXPECTED RETURN
+          </label>
           <input
             type="number"
             name={names[2]}
@@ -44,7 +56,11 @@ export default function UserInput({ label, inputValue, setUserValue, ...props })
           />
         </div>
         <div>
-          <label htmlFor={names[3]}>ANNUAL INVESTMENT</label>
+          <label htmlFor={names[3]}>
+            투자기간
+            <br />
+            DURATION
+          </label>
           <input
             type="number"
             name={names[3]}

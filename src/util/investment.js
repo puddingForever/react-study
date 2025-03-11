@@ -1,9 +1,9 @@
 // This function expects a JS object as an argument
 // The object should contain the following properties
-// - initialInvestment: The initial investment amount
-// - annualInvestment: The amount invested every year
-// - expectedReturn: The expected (annual) rate of return
-// - duration: The investment duration (time frame)
+// - initialInvestment: The initial investment amount 초기 투자 금액
+// - annualInvestment: The amount invested every year 매년 투자 금액
+// - expectedReturn: The expected (annual) rate of return 예상 연간 수익률
+// - duration: The investment duration (time frame) 투자기간
 export function calculateInvestmentResults({ initialInvestment, annualInvestment, expectedReturn, duration }) {
   const annualData = [];
   let investmentValue = initialInvestment;

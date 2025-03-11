@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import UserInput from "./components/UserInput";
-import { ListTable } from "./components/ListTable";
+import ListTable from "./components/ListTable";
 
 function App() {
   const [inputValue, setUserValue] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 300,
-    expectedReturn: 10,
-    duration: 12,
+    initialInvestment: 15000,
+    annualInvestment: 1200,
+    expectedReturn: 6,
+    duration: 10,
   });
 
   return (
