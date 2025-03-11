@@ -2,7 +2,7 @@ export default function UserInput({ label, inputValue, setUserValue, ...props })
   const names = Object.keys(inputValue);
   const handleGetValue = (e) => {
     const { name, value } = e.target;
-    setUserValue((prev) => ({ ...prev, [name]: value }));
+    setUserValue((prev) => ({ ...prev, [name]: Number(value) }));
   };
 
   return (
