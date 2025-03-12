@@ -8,10 +8,10 @@ function App() {
     initialInvestment: 15000,
     annualInvestment: 1200,
     expectedReturn: 6,
-    duration: 10,
+    duration: 30,
   });
 
-  const isValidInput = Object.values(inputValue).every((v) => v >= 1);
+  const isValidInput = Object.values(inputValue).every((v) => v > 0);
 
   return (
     <>

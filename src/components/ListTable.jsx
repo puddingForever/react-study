@@ -1,4 +1,5 @@
 import { calculateInvestmentResults, formatter } from "../util/investment";
+import FormatTextLine from "./utill/FormatTextLine";
 const THEAD_NAMES = [
   "연도\nYear",
   "투자 가치\nInvestment Value",
@@ -11,14 +12,13 @@ export default function ListTable({ inputValue }) {
   const results = calculateInvestmentResults(inputValue);
   const { valueEndOfYear, interest, annualInvestment } = results[0];
   const initialInvestment = valueEndOfYear - interest - annualInvestment;
-  console.log(results);
   return (
-    <>
+    <div className="table-container">
       <table id="result">
         <thead>
-          <tr>
+          <tr className="center">
             {THEAD_NAMES.map((name) => (
-              <td key={name}>{name}</td>
+              <td key={name}>{FormatTextLine(name)}</td>
             ))}
           </tr>
         </thead>
@@ -45,6 +45,6 @@ export default function ListTable({ inputValue }) {
           })}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }

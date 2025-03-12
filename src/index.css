@@ -16,7 +16,7 @@ body {
 
 #header {
   text-align: center;
-  margin: 3rem auto;
+  margin: 2rem auto;
 }
 
 #header img {
@@ -31,19 +31,15 @@ body {
 }
 
 #user-input {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   padding: 1rem;
   max-width: 30rem;
   margin: 2rem auto;
   gap: 1rem;
   border-radius: 4px;
   background: linear-gradient(180deg, #307e6c, #2b996d);
-}
-
-.input-group {
-  display: flex;
-  justify-content: space-evenly;
 }
 
 #user-input label {
@@ -63,27 +59,41 @@ body {
   color: #c2e9e0;
   font-size: 1.2rem;
   font-family: "Roboto Condensed", sans-serif;
+  outline: none;
+  white-space: pre-line;
+}
+.table-container {
+  max-height: 50vh;
+  overflow-y: scroll;
 }
 
 #result {
   max-width: 50rem;
-  margin: 2rem auto;
+  margin: 0 auto;
   table-layout: fixed;
   border-spacing: 1rem;
   text-align: right;
+  border-collapse: collapse;
 }
-#result tr {
-  white-space: pre-line;
+#result td {
   text-align: center;
+  padding: 10px;
 }
 #result thead {
   font-size: 1.2rem;
   color: #83e6c0;
+  position: sticky;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  background: #303b37;
 }
 
 #result tbody {
   font-size: 1.2rem;
   color: #c2e9e0;
+  max-height: 500px;
+  overflow: scroll;
 }
 
 .center {
