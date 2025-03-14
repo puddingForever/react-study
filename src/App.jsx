@@ -21,6 +21,8 @@ const App = () => {
     duration: 10
   });
 
+  const inputIsValid = inputValue.duration >= 1;
+
   // input필드 값 변경 시 inputValue 업데이트
   const handleChange = (prop, newValue) => {
     setInputValue(prev => {
@@ -30,12 +32,15 @@ const App = () => {
       };
     });
   }
+  const investmentResults = inputIsValid ? calculateInvestmentResults(inputValue) : [];
 
   return (
     <>
       <Header />
       <UserInput inputValue={inputValue} onChange={handleChange} />
-      <ResultsTable results={calculateInvestmentResults(inputValue)} initialInv={inputValue.initialInvestment} />
+      {!inputIsValid && (<p className="center">Please enter a duration greater than zero.</p>)}
+      {inputIsValid && <ResultsTable results={investmentResults} initialInv={inputValue.initialInvestment} />}
+
     </>
   );
 }
