@@ -1,46 +1,32 @@
-import { useState } from 'react';
-import Header from './components/Header';
-import UserInput from './components/UserInput';
-import ResultsTable from './components/ResultsTable';
-import { calculateInvestmentResults } from './util/investment';
-
-// inputValue 식별자 상수
-export const InputField = {
-  INITIAL_INVESTMENT: 'initialInvestment',
-  ANNUAL_INVESTMENT: 'annualInvestment',
-  EXPECTED_RETURN: 'expectedReturn',
-  DURATION: 'duration'
-};
-
-// 페이지 구조 및 데이터 관리
-const App = () => {
-  const [inputValue, setInputValue] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10
-  });
-
-  const inputIsValid = inputValue.duration >= 1;
-
-  // input필드 값 변경 시 inputValue 업데이트
-  const handleChange = (prop, newValue) => {
-    setInputValue(prev => {
-      return {
-        ...prev,
-        [prop]: +newValue
-      };
-    });
-  }
-  const investmentResults = inputIsValid ? calculateInvestmentResults(inputValue) : [];
-
+function App() {
+  /*
+  리액트 프로젝트 관리 앱
+  
+  1. 요구사항
+  프로젝트 관리 기능:
+  - 새 프로젝트 생성 (Add Project)
+  - 프로젝트 정보: 프로젝트명, 프로젝트 설명, Due Date
+  - 프로젝트 삭제 기능
+  
+  
+  태스크 관리 기능:
+  - 프로젝트별 태스크 추가 (Add Task)
+  - 태스크 삭제 기능 (Clear)
+  - 태스크 목록 출력
+  
+  2. 구조 설계
+  - App
+  - ProjectList : 프로젝트 목록
+  - ProjectForm : 프로젝트 추가 폼
+  - ProjectItem : 프로젝트
+  - TaskList : 태스크 목록
+  - TaskItem : 태스크
+  - Button : 버튼
+  - Input : 입력
+  */
   return (
     <>
-      <Header />
-      <UserInput inputValue={inputValue} onChange={handleChange} />
-      {!inputIsValid && (<p className="center">Please enter a duration greater than zero.</p>)}
-      {inputIsValid && <ResultsTable results={investmentResults} initialInv={inputValue.initialInvestment} />}
-
+      <h1 className="my-8 text-center text-5xl font-bold">Hello World</h1>
     </>
   );
 }
