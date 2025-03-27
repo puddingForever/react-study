@@ -19,12 +19,16 @@ export default function TodoForm() {
     setNewTodo((prev) => ({ ...prev, [name]: value, task: [] }));
   };
 
+  const handleCancel = () => navigate("/");
+
   return (
     //프로젝트 추가하기를 누르면 나오는 폼
     <form onSubmit={handleUpdateNewTodo}>
       <div>
-        <button>cancel</button>
-        <button>save</button>
+        <button type="button" onClick={handleCancel}>
+          cancel
+        </button>
+        <button type="submit">save</button>
       </div>
       <div>
         <div>

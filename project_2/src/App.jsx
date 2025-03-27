@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
-
+  console.log("list", todoList);
   return (
     <>
       <div className="todoWrapper">
