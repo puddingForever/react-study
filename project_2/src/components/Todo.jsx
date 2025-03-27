@@ -1,15 +1,18 @@
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 
 export default function Todo() {
   const { todoList } = useOutletContext();
-  console.log(todoList);
+  const params = useParams();
+  const currentTodo = todoList.find((todo) => todo.id === params.id);
+  console.log("현투두", currentTodo);
+  const { title, description, date } = currentTodo;
   return (
     <article>
       <button>delete</button>
       <div>
-        <h3>title</h3>
-        <span>date</span>
-        <p>content</p>
+        <h3>{title}</h3>
+        <span>{description}</span>
+        <p>{date}</p>
       </div>
       <div>
         <h4>Tasks</h4>

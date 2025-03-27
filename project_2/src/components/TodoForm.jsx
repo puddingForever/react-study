@@ -12,11 +12,12 @@ export default function TodoForm() {
     const addTodoId = { ...newTodo, id: uuidv4() };
     setTodoList((prev) => [...prev, addTodoId]);
     navigate("/");
+    // navigate(`/${addTodoId.id}`);
   };
 
   const handleNewTodo = (e) => {
     const { name, value } = e.target;
-    setNewTodo((prev) => ({ ...prev, [name]: value }));
+    setNewTodo((prev) => ({ ...prev, [name]: value, task: [] }));
   };
 
   return (
