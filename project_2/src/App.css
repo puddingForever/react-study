@@ -1,0 +1,7 @@
+.todoWrapper {
+  display: flex;
+}
+.sideTop {
+  display: flex;
+  flex-direction: column;
+}
