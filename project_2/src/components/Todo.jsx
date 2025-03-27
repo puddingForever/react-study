@@ -3,9 +3,9 @@ import { useOutletContext, useParams } from "react-router-dom";
 export default function Todo() {
   const { todoList } = useOutletContext();
   const params = useParams();
-  const currentTodo = todoList.find((todo) => todo.id === params.id);
-  console.log("현투두", currentTodo);
-  const { title, description, date } = currentTodo;
+  const currentTodo = todoList?.find((todo) => todo?.id === params?.id);
+
+  const { title, description, date } = currentTodo || {};
   return (
     <article>
       <button>delete</button>

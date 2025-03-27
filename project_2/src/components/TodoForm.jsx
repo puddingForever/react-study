@@ -11,8 +11,7 @@ export default function TodoForm() {
     e.preventDefault();
     const addTodoId = { ...newTodo, id: uuidv4() };
     setTodoList((prev) => [...prev, addTodoId]);
-    navigate("/");
-    // navigate(`/${addTodoId.id}`);
+    navigate(`/${addTodoId.id}`);
   };
 
   const handleNewTodo = (e) => {
