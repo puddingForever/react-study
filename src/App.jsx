@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProjectList from "./components/projects/ProjectList";
 import ProjectDetail from "./components/projects/ProjectDetail";
 
@@ -7,6 +7,14 @@ const App = () => {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(projects.length > 0 ? projects[0] : null);
   const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    if (projects.length > 0) {
+      setSelectedProject(projects[projects.length - 1]);
+    } else {
+      setSelectedProject(null);
+    }
+  }, [projects]);
 
   // 프로젝트 추가 버튼 클릭시
   const handleAddProject = () => {
@@ -23,16 +31,14 @@ const App = () => {
   // 프로젝트 저장 버튼 클릭시
   const handleSaveProject = (project) => {
     const newProject = { ...project, id: Date.now().toString(), tasks: [] };
-
     setProjects(prevProjects => [...prevProjects, newProject]);
-    setSelectedProject(newProject);
     setShowForm(false);
   };
 
   // 프로젝트 삭제 버튼 클릭시
   const handleDeleteProject = (projectId) => {
-    setProjects(projects.filter(project => project.id !== projectId));
-    setSelectedProject(null);
+    const updatedProjects = projects.filter(project => project.id !== projectId);
+    setProjects(updatedProjects);
   };
 
   // 프로젝트의 task 업데이트

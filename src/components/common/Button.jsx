@@ -5,7 +5,8 @@ const Button = ({ children, variant = "default", onClick, className = "" }) => {
   const variants = {
     default: "bg-transparent text-black hover:bg-black hover:text-white",
     black: "bg-black text-white hover:bg-gray-800",
-    cancel: "bg-transparent text-black hover:bg-gray-200"
+    cancel: "bg-transparent text-black hover:bg-gray-200",
+    primary: "bg-blue-500 text-white hover:bg-blue-600",
   };
 
   return (
