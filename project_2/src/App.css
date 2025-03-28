@@ -8,3 +8,6 @@
 .active {
   color: red;
 }
+.taskList {
+  display: flex;
+}
