@@ -1,16 +1,24 @@
 # 리엑트 스터디
 
-React 공부하는 개발자 모임
+```
+src/
+├── App.jsx
+├── pages/
+│   └──  managementPage.jsx # 관리 페이지의 최상단 컴포넌트, 상태관리
+└── components/
+    ├── common/               # 공통 컴포넌트
+    │   └── button.jsx        # 버튼
+    ├── sideBar               # 왼쪽 사이트바 컴포넌트
+    │   └── index.jsx
+    └── views/                # 오른쪽 뷰 컴포넌트
+        ├── index.jsx         # 뷰 분기 컴포넌트(route)
+        ├── addProjectView.jsx  # 프로젝트 추가 페이지
+        ├── detailView.jsx    # 상세 프로젝트 페이지
+        └── homeView.jsw      # 메인 페이지 및 에러 페이지
+
+```
 
 # 프로젝트 셋팅
 
 npm install  
 npm run dev
-
-# 규칙
-
-- 일요일 5시까지 원본의 본인 브랜치에 Pull Request 합니다.
-- 파트너는 Pull Request 메뉴에서 올라온 코드를 리뷰해줍니다.
-  ![alt text](image.png)
-- 메뉴를 누르고 코드를 클릭하시면 코드에 코멘트 할 수 있습니다.
-- Merge는 월요일 진행예정
