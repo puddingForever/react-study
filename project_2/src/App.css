@@ -1,13 +1,249 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+button {
+  cursor: pointer;
+}
 .todoWrapper {
   display: flex;
+  width: 100%;
+  height: 100vh;
 }
 .sideTop {
   display: flex;
   flex-direction: column;
 }
-.active {
-  color: red;
-}
+
 .taskList {
   display: flex;
+}
+.commonBtn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  outline: none;
+  border: 0;
+  background-color: #332e2a;
+  color: #d0caca;
+  width: fit-content;
+}
+.textBtn {
+  outline: none;
+  padding: 8px 12px;
+  border: 0;
+  background-color: transparent;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+li {
+  list-style: none;
+}
+.inputContainer {
+  width: 100%;
+}
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.content {
+  width: 100%;
+  padding: 48px;
+}
+.inputStyle {
+  outline: none;
+  background-color: #d0caca;
+  border: 0;
+  height: 30px;
+  border-radius: 6px;
+  padding: 0 12px;
+}
+.textArea {
+  height: 50px;
+  resize: none;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+.sideBar {
+  width: 300px;
+  padding: 48px 24px;
+  background-color: black;
+}
+.mdText {
+  font-size: 20px;
+  font-weight: 700;
+}
+.mgBtm {
+  margin-bottom: 24px;
+}
+.white {
+  color: #fff;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.noTodolist {
+  gap: 24px;
+}
+.pointer {
+  cursor: pointer;
+}
+.right {
+  display: flex;
+  justify-content: end;
+}
+.menuTitle {
+  padding: 12px 0;
+  color: #aeacac;
+  cursor: pointer;
+}
+.menuTitle.active {
+  color: #fff;
+}
+.pd24 {
+  padding: 12px 24px;
+}
+.taskItem {
+  padding: 12px 0;
+  min-width: 150px;
+}
+.flex {
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+}
+.taskWrapper {
+  margin-top: 24px;
+}
+.description {
+  margin-bottom: 24px;
+  display: inline-block;
+}
+.mb12 {
+  margin-bottom: 12px;
 }

@@ -6,10 +6,12 @@ export default function NoTodoList() {
     navigate("/newTodo");
   };
   return (
-    <div>
-      <p>NoTodoList</p>
+    <article className="center noTodolist">
+      <p className="mdText">NoTodoList</p>
       <p>select a project or get started with new one</p>
-      <button onClick={handleMoveTodoForm}>create new project</button>
-    </div>
+      <button className="commonBtn" onClick={handleMoveTodoForm}>
+        create new project
+      </button>
+    </article>
   );
 }

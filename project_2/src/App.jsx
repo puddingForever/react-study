@@ -5,14 +5,13 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
-  console.log("list", todoList);
   return (
-    <>
-      <div className="todoWrapper">
-        <Sidebar todoList={todoList} />
+    <main className="todoWrapper">
+      <Sidebar todoList={todoList} />
+      <div className="content">
         <Outlet context={{ todoList, setTodoList }} />
       </div>
-    </>
+    </main>
   );
 }
 

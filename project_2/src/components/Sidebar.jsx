@@ -18,22 +18,32 @@ export default function Sidebar({ todoList }) {
   }, [param.id]);
 
   return (
-    <article>
+    <aside className="sideBar">
       <div className="sideTop">
-        <strong>Your Project</strong>
-        <button onClick={() => navigate("/newTodo")}>Add Project</button>
+        <strong
+          className="mdText mgBtm white pointer"
+          onClick={() => navigate("/")}
+        >
+          Your Projects
+        </strong>
+        <button
+          onClick={() => navigate("/newTodo")}
+          className="commonBtn mgBtm"
+        >
+          + Add Project
+        </button>
       </div>
       <ul>
         {todoList?.map((todo) => (
           <li
             key={todo.id}
             onClick={() => handleUpdateCurrentTodo(todo.id)}
-            className={todo.id === isActive ? "active" : ""}
+            className={`menuTitle ${todo.id === isActive ? "active" : ""}`}
           >
             {todo.title}
           </li>
         ))}
       </ul>
-    </article>
+    </aside>
   );
 }
