@@ -7,7 +7,6 @@ export default function Timer({ timeout, onTimeout }) {
   //timeout 의 시간이 지나면 onTimeout 함수를 실행
   //다음 문제로 넘기기
   useEffect(() => {
-    console.log("timer 생성");
     const timer = setTimeout(onTimeout, timeout);
     return () => clearTimeout(timer);
   }, [onTimeout, timeout]);
