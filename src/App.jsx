@@ -1,14 +1,14 @@
 import React from 'react';
 import { useQuizContext } from './context/QuizContext';
-import Quiz from './components/Quiz/Quiz';
-import Summary from './components/Summary/Summary';
-import Header from './components/Quiz/Header';
+import QuizPage from './components/Quiz/QuizPage';
+import SummaryPage from './components/Summary/SummaryPage';
+import Header from './components/Header';
 
 // 게임 상태에 따라 페이지를 다르게 출력
 const App = () => {
   const { isGameEnd } = useQuizContext();
 
-  const renderPage = !isGameEnd ? <Quiz /> : <Summary />;
+  const renderPage = !isGameEnd ? <QuizPage /> : <SummaryPage />;
 
   return (
     <>

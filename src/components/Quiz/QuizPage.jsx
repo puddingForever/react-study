@@ -6,7 +6,7 @@ import { useQuizContext } from '../../context/QuizContext';
  * 퀴즈를 출력하는 페이지
  * 출력하는 문제는 QuizContext에서 관리
  */
-const Quiz = () => {
+const QuizPage = () => {
   const { currentQuestionIndex, questions } = useQuizContext();
   const currentQuestion = questions[currentQuestionIndex];
 
@@ -27,4 +27,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export default QuizPage;

@@ -6,7 +6,7 @@ import { ANSWER_STATE } from '../../data/constants';
 /**
  * 결과 페이지
  */
-const Summary = () => {
+const SummaryPage = () => {
   const { questions, userAnswers, calculateStats } = useQuizContext();
   const stats = calculateStats();
 
@@ -50,4 +50,4 @@ const Summary = () => {
   );
 };
 
-export default Summary;
+export default SummaryPage;

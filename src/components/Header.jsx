@@ -1,5 +1,5 @@
 import React from 'react';
-import quizLogo from '../../assets/quiz-logo.png';
+import quizLogo from '../assets/quiz-logo.png';
 /**
  * 헤더 출력
  */
