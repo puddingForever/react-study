@@ -1,12 +1,13 @@
-import {Header,Quiz,Summary} from "./components/quizApp"
+import { Header, Quiz } from './components/quizApp';
+import { QuizContextProvider } from './components/quizApp/context/quiz-provider';
 
 const App = () => {
- 
   return (
     <>
       <Header />
-      <Quiz />
-    
+      <QuizContextProvider>
+        <Quiz />
+      </QuizContextProvider>
     </>
   );
 };
