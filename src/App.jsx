@@ -1,11 +1,12 @@
-import './App.css';
-import ManagementPage from './pages/managementPage';
+import Header from './components/header';
+import Quiz from './components/Quiz';
 
 function App() {
     return (
-        <>
-            <ManagementPage />
-        </>
+        <div className="App">
+            <Header />
+            <Quiz />
+        </div>
     );
 }
 
