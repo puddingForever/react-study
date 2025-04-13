@@ -3,13 +3,12 @@ import Header from "./components/Header";
 import Quiz from "./components/Quiz";
 import { AnswerContext } from "./context/answerContext";
 import QUESTION from "./question.js";
-
+import CompleteImage from "./assets/quiz-complete.png";
 function App() {
   const [userAnswer, setUserAnswer] = useState([]);
   const [answerState, setAnswerState] = useState("");
-  let activeIndex = 0;
   //아직고른 답이 없으면 0 있으면 등록된 답변 수-1(현재 인덱스)
-
+  const [activeIndex, setActiveIndex] = useState(0);
   const handleGetSelectAnswer = useCallback(
     function handleGetSelectAnswer(selectedAnswer) {
       //넘어가기 전 선택된 답변의 색상 변경 로직 추가
@@ -18,6 +17,7 @@ function App() {
       setUserAnswer((prev) => {
         return [...prev, selectedAnswer];
       });
+      setActiveIndex((prev) => prev + 1);
       setTimeout(() => {
         if (selectedAnswer === QUESTION[activeIndex].answers[0]) {
           setAnswerState("correct");

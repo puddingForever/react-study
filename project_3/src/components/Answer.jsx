@@ -1,17 +1,18 @@
 import { useContext, useRef } from "react";
 import QUESTION from "../question.js";
 import { AnswerContext } from "../context/answerContext.jsx";
-export default function Answer({}) {
+export default function Answer() {
   const { activeIndex, userAnswer, answerState, handleGetSelectAnswer } =
     useContext(AnswerContext);
 
   const sufferedAnswersRef = useRef(QUESTION[0].answers);
-  sufferedAnswersRef.current = [...QUESTION[activeIndex].answers];
-  sufferedAnswersRef.current.sort(() => Math.random() - 0.5);
-
+  if (!sufferedAnswersRef.current) {
+    sufferedAnswersRef.current = [...QUESTION[activeIndex].answers];
+    sufferedAnswersRef.current.sort(() => Math.random() - 0.5);
+  }
   return (
     <ul id="answers">
-      {sufferedAnswersRef.current.map((answer, idx) => {
+      {[...QUESTION[activeIndex].answers].map((answer, idx) => {
         const isSelected = userAnswer[userAnswer.length - 1] === answer;
         let cssClass = "selected";
         if (answerState === "answered" && isSelected) {
