@@ -1,9 +1,9 @@
-export default function Input({ label }) {
+export default function Input({ label, name }) {
   return (
     <>
       <div className="control">
-        <label htmlFor="">{label}</label>
-        <input type="text" />
+        <label htmlFor={name}>{label}</label>
+        <input type="text" name={name} />
       </div>
     </>
   );

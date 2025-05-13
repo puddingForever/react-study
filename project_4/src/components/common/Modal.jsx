@@ -7,15 +7,16 @@ export default function Modal({ children }) {
   const handleCloseModal = () => {
     dispatch(cartUIActions.toggleCart());
   };
-  return (
+  return createPortal(
     <dialog className="modal" open>
       {children}
-      <div className="modal-actions ">
+      <div className="modal-actions">
         <button className="text-button" onClick={handleCloseModal}>
           닫기
         </button>
         <button className="button">Go to checkout</button>
       </div>
-    </dialog>
+    </dialog>,
+    document.getElementById("modal")
   );
 }

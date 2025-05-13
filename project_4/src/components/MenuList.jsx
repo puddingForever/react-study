@@ -14,7 +14,6 @@ import Checkout from "./Checkout";
 export default function MenuList() {
   //메뉴별 데이터 목록
   const [meals, setMeals] = useState([]);
-  const isShowCartUIState = useSelector((state) => state.ui.isShow);
 
   //서버에서 메뉴별 데이터 불러오기
   useEffect(() => {
@@ -31,12 +30,6 @@ export default function MenuList() {
 
   return (
     <>
-      {isShowCartUIState && (
-        <Modal>
-          {/* <Cart /> */}
-          <Checkout />
-        </Modal>
-      )}
       <div id="meals">
         {meals.map((meal) => {
           return <MenuCard key={meal.id} menuData={meal} />;
