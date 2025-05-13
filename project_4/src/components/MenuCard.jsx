@@ -16,7 +16,7 @@ export default function MenuCard({ menuData }) {
       <h3>{name}</h3>
       <span className="meal-item-price">$ {price}</span>
       <p className="meal-item-description">{description}</p>
-      <button className="meal-item-actions" onClick={handleAddtoCart}>
+      <button className="meal-item-actions button" onClick={handleAddtoCart}>
         add To Cart
       </button>
     </div>
