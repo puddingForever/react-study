@@ -1,3 +1,5 @@
+import Header from "./components/Header";
+
 function App() {
   /*
   1. 사용자가 음식 목록을 볼 수 있는 리스트 페이지
@@ -8,6 +10,7 @@ function App() {
   */
   return (
     <>
+      <Header />
       <div>main</div>
     </>
   );
