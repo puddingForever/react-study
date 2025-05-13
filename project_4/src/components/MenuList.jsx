@@ -4,6 +4,7 @@ import { BASE_URL } from "../api/base";
 import Cart from "./Cart";
 import Modal from "./common/Modal";
 import { useSelector } from "react-redux";
+import Checkout from "./Checkout";
 
 /**
  * 메뉴 리스트를 렌더링하는 컴포넌트
@@ -32,7 +33,8 @@ export default function MenuList() {
     <>
       {isShowCartUIState && (
         <Modal>
-          <Cart />
+          {/* <Cart /> */}
+          <Checkout />
         </Modal>
       )}
       <div id="meals">

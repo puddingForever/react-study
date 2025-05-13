@@ -11,12 +11,11 @@ export default function Cart() {
 
   return (
     <div className="cart">
-      <h2>Your Cart</h2>
       <ul>
         {cartItems.map((item) => {
           return <CartItem key={item.id} item={item} />;
         })}
-        <span className="cart-total ">${totalAmount}</span>
+        <span className="cart-total">${totalAmount}</span>
       </ul>
     </div>
   );
