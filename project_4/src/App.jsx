@@ -3,9 +3,11 @@ import Header from "./components/common/Header";
 import MenuList from "./components/MenuList";
 import Cart from "./components/Cart";
 import Modal from "./components/common/Modal";
+import Checkout from "./components/Checkout";
 
 function App() {
-  const isShowCartUIState = useSelector((state) => state.ui.isShow);
+  const { isShow, view } = useSelector((state) => state.ui);
+
   /*
   1. 사용자가 음식 목록을 볼 수 있는 리스트 페이지
   2. 카트에 사용자가 선택한 음식 담을 수 있는 기능
@@ -16,10 +18,10 @@ function App() {
 
   return (
     <>
-      {isShowCartUIState && (
-        <Modal>
-          <Cart />
-          {/* <Checkout /> */}
+      {isShow && (
+        <Modal currentView={view}>
+          {view === "cart" && <Cart />}
+          {view === "checkout" && <Checkout />}
         </Modal>
       )}
       <Header />

@@ -4,9 +4,12 @@ import Input from "./common/Input";
 export default function Checkout() {
   //name,email,street,postal-code,city
   const totalAmount = useSelector((state) => state.cart.totalPrice);
-
+  const submitOrderHandler = (e) => {
+    e.preventDefault();
+    console.log("제출");
+  };
   return (
-    <div>
+    <form id="checkout-form" onSubmit={submitOrderHandler}>
       <h2>Your Cart</h2>
       <p>Total Amount: $ {totalAmount}</p>
       <Input label="Full Name" name="name" />
@@ -16,6 +19,6 @@ export default function Checkout() {
         <Input label="Post Code" name="postal-code" />
         <Input label="City" name="city" />
       </div>
-    </div>
+    </form>
   );
 }
