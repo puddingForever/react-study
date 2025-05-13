@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import MenuList from "./components/MenuList";
 
 function App() {
   /*
@@ -11,7 +12,7 @@ function App() {
   return (
     <>
       <Header />
-      <div>main</div>
+      <MenuList />
     </>
   );
 }
