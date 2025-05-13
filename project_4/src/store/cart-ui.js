@@ -9,8 +9,9 @@ const cartUISlice = createSlice({
       state.isShow = !state.isShow;
       state.view = "cart";
     },
-    showCheckout(state) {
-      state.view = "checkout";
+    showOtherContent(state, action) {
+      const content = action.payload;
+      state.view = content;
     },
   },
 });

@@ -13,7 +13,9 @@ export default function Header() {
         <img src="logo.jpg" alt="로고" />
         <h1>FOOD</h1>
       </div>
-      <button onClick={handleToggleCart}>Cart ({totalItemsInCart})</button>
+      <button type="button" onClick={handleToggleCart}>
+        Cart ({totalItemsInCart})
+      </button>
     </header>
   );
 }

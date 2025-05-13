@@ -9,21 +9,27 @@ import { cartActions } from "../store/cart-slice";
 export default function CartItem({ item }) {
   const { id, name, count, subtotal } = item;
   const dispatch = useDispatch();
+
   const increaseItemQuantity = () => {
     dispatch(cartActions.addItemToCart(item));
   };
   const decreaseItemQuantity = () => {
     dispatch(cartActions.removeItemToCart(id));
   };
+
   return (
     <li className="cart-item">
       <p>
         <span>{name}</span> - <span>{count}</span> x <span>$ {subtotal}</span>
       </p>
       <div className="cart-item-actions">
-        <button onClick={decreaseItemQuantity}>-</button>
+        <button type="button" onClick={decreaseItemQuantity}>
+          -
+        </button>
         {count}
-        <button onClick={increaseItemQuantity}>+</button>
+        <button type="button" onClick={increaseItemQuantity}>
+          +
+        </button>
       </div>
     </li>
   );

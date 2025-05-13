@@ -2,37 +2,46 @@ import { createPortal } from "react-dom";
 import { useDispatch } from "react-redux";
 import { cartUIActions } from "../../store/cart-ui";
 
-export default function Modal({ children, currentView }) {
+export default function Modal({ children, view }) {
   const dispatch = useDispatch();
   const handleCloseModal = () => {
     dispatch(cartUIActions.toggleCart());
   };
-
-  const viewActions = {
-    cart: (
-      <button
-        className="button"
-        type="button"
-        onClick={() => dispatch(cartUIActions.showCheckout())}
-      >
-        Go to checkout
-      </button>
-    ),
-    checkout: (
-      <button className="button" type="submit" form="checkout-form">
-        Submit Order
-      </button>
-    ),
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("제출");
+  };
+  const handleChangeModalView = () => {
+    dispatch(cartUIActions.showOtherContent("checkout"));
   };
 
   return createPortal(
     <dialog className="modal" open>
-      {children}
+      <form id="checkout-form" onSubmit={handleSubmit}>
+        {children}
+      </form>
       <div className="modal-actions">
-        <button className="text-button" onClick={handleCloseModal}>
+        <button
+          className="text-button"
+          type="button"
+          onClick={handleCloseModal}
+        >
           닫기
         </button>
-        {viewActions[currentView]}
+        {view === "cart" && (
+          <button
+            type="button"
+            className="button"
+            onClick={handleChangeModalView}
+          >
+            Go to Checkout
+          </button>
+        )}
+        {view === "checkout" && (
+          <button type="submit" className="button" form="checkout-form">
+            Submit-Order
+          </button>
+        )}
       </div>
     </dialog>,
     document.getElementById("modal")
