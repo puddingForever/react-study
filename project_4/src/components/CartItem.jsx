@@ -1,12 +1,13 @@
-export default function CartItem() {
+export default function CartItem({ item }) {
+  const { name, count, subtotal } = item;
   return (
-    <div className="cart-item">
+    <li className="cart-item">
       <p>
-        <span>title</span>-<span>count</span>x<span>price</span>
+        <span>{name}</span> - <span>{count}</span> x <span>$ {subtotal}</span>
       </p>
       <div className="cart-item-actions">
         <button>-</button>1<button>+</button>
       </div>
-    </div>
+    </li>
   );
 }

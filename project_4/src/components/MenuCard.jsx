@@ -12,7 +12,13 @@ export default function MenuCard({ menuData }) {
   const dispatch = useDispatch();
 
   const handleAddtoCart = () => {
-    dispatch(cartActions.addItemToCart(menuData));
+    dispatch(
+      cartActions.addItemToCart({
+        id,
+        name,
+        price: Number(price),
+      })
+    );
   };
   return (
     <div className="meal-item">

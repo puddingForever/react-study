@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialCartState = { items: [], totalCount: 0 };
+const initialCartState = { items: [], totalCount: 0, totalPrice: 0 };
 
 const cartSlice = createSlice({
   name: "cart",
@@ -10,11 +10,12 @@ const cartSlice = createSlice({
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
       state.totalCount++;
+      state.totalPrice = state.totalPrice + newItem.price;
       //장바구니에 없는 상품이면 추가하고 있는 상품이면 count 추가
       if (!existingItem) {
         state.items.push({
           id: newItem.id,
-          name: newItem.title,
+          name: newItem.name,
           price: newItem.price,
           count: 1,
           subtotal: newItem.price,
@@ -28,6 +29,7 @@ const cartSlice = createSlice({
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
       state.totalCount--;
+      state.totalPrice = state.totalPrice - existingItem.price;
       // 1개면 제거, 2개 이상이면 수량 -1
       if (existingItem === 1) {
         state.items.filter((item) => item.id !== id);
