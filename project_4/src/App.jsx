@@ -1,5 +1,7 @@
+import { Provider } from "react-redux";
 import Header from "./components/common/Header";
 import MenuList from "./components/MenuList";
+import store from "./store";
 
 function App() {
   /*
@@ -10,10 +12,10 @@ function App() {
   5. 주문 검토 후 백엔드로 제출
   */
   return (
-    <>
+    <Provider store={store}>
       <Header />
       <MenuList />
-    </>
+    </Provider>
   );
 }
 

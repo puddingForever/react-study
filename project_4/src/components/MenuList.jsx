@@ -3,6 +3,7 @@ import MenuCard from "./MenuCard";
 import { BASE_URL } from "../api/base";
 import Cart from "./Cart";
 import Modal from "./common/Modal";
+import { useSelector } from "react-redux";
 
 /**
  * 메뉴 리스트를 렌더링하는 컴포넌트
@@ -12,6 +13,7 @@ import Modal from "./common/Modal";
 export default function MenuList() {
   //메뉴별 데이터 목록
   const [meals, setMeals] = useState([]);
+  const isShowCartUIState = useSelector((state) => state.ui.isShow);
 
   //서버에서 메뉴별 데이터 불러오기
   useEffect(() => {
@@ -28,9 +30,11 @@ export default function MenuList() {
 
   return (
     <>
-      <Modal>
-        <Cart />
-      </Modal>
+      {isShowCartUIState && (
+        <Modal>
+          <Cart />
+        </Modal>
+      )}
       <div id="meals">
         {meals.map((meal) => {
           return <MenuCard key={meal.id} menuData={meal} />;

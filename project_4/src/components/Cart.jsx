@@ -6,7 +6,7 @@ export default function Cart() {
       <h2>Your Cart</h2>
       <ul>
         <CartItem />
-        <span className="cart-total ">total</span>
+        <span className="cart-total ">$total</span>
       </ul>
     </div>
   );
