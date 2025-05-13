@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import MenuCard from "./MenuCard";
 import { BASE_URL } from "../api/base";
+import Cart from "./Cart";
+import Modal from "./common/Modal";
 
 /**
  * 메뉴 리스트를 렌더링하는 컴포넌트
@@ -25,10 +27,15 @@ export default function MenuList() {
   }, []);
 
   return (
-    <div id="meals">
-      {meals.map((meal) => {
-        return <MenuCard key={meal.id} menuData={meal} />;
-      })}
-    </div>
+    <>
+      <Modal>
+        <Cart />
+      </Modal>
+      <div id="meals">
+        {meals.map((meal) => {
+          return <MenuCard key={meal.id} menuData={meal} />;
+        })}
+      </div>
+    </>
   );
 }
