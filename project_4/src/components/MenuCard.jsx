@@ -1,5 +1,6 @@
 import { BASE_URL } from "../api/base";
-
+import { useDispatch } from "react-redux";
+import { cartActions } from "../store/cart-slice";
 /**
  * 메뉴 카드 UI 컴포넌트
  * @param {Object} menuData - 메뉴 데이터
@@ -8,8 +9,11 @@ import { BASE_URL } from "../api/base";
 
 export default function MenuCard({ menuData }) {
   const { id, description, image, name, price } = menuData;
+  const dispatch = useDispatch();
 
-  const handleAddtoCart = () => {};
+  const handleAddtoCart = () => {
+    dispatch(cartActions.addItemToCart(menuData));
+  };
   return (
     <div className="meal-item">
       <img src={`${BASE_URL}/${image}`} alt={name} />

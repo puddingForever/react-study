@@ -1,9 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartUIActions } from "../../store/cart-ui";
 
 export default function Header() {
   const dispatch = useDispatch();
-
+  const totalCartItemCount = useSelector((state) => state.cart.totalCount);
   const handleToggleCart = () => {
     dispatch(cartUIActions.toggleCart());
   };
@@ -13,7 +13,7 @@ export default function Header() {
         <img src="logo.jpg" alt="로고" />
         <h1>FOOD</h1>
       </div>
-      <button onClick={handleToggleCart}>Cart ({"수량"})</button>
+      <button onClick={handleToggleCart}>Cart ({totalCartItemCount})</button>
     </header>
   );
 }
