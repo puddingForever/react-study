@@ -1,20 +1,53 @@
-import React from 'react';
-import { useQuizContext } from './context/QuizContext';
-import QuizPage from './components/Quiz/QuizPage';
-import SummaryPage from './components/Summary/SummaryPage';
-import Header from './components/Header';
+import { useState } from 'react';
+import Header from './components/Layout/Header';
+import MealList from './components/Meals/MealList';
+import Cart from './components/Cart/Cart';
+import Checkout from './components/Checkout/Checkout';
+import { CartProvider } from './store/CartContext';
 
-// 게임 상태에 따라 페이지를 다르게 출력
+// 모달 상태 관리
+// CartProvider로 전체 앱에 장바구니 상태 제공
 const App = () => {
-  const { isGameEnd } = useQuizContext();
+  const [cartIsShown, setCartIsShown] = useState(false);
+  const [checkoutIsShown, setCheckoutIsShown] = useState(false);
 
-  const renderPage = !isGameEnd ? <QuizPage /> : <SummaryPage />;
+  const showCartHandler = () => {
+    setCartIsShown(true);
+    setCheckoutIsShown(false);
+  };
+
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  };
+
+  const showCheckoutHandler = () => {
+    setCartIsShown(false);
+    setCheckoutIsShown(true);
+  };
+
+  const hideCheckoutHandler = () => {
+    setCheckoutIsShown(false);
+  };
 
   return (
-    <>
-      <Header />
-      {renderPage}
-    </>
+    <CartProvider>
+      {cartIsShown && (
+        <Cart
+          onClose={hideCartHandler}
+          onCheckout={showCheckoutHandler}
+        />
+      )}
+      {checkoutIsShown && (
+        <Checkout
+          onCancel={hideCheckoutHandler}
+          onShowCart={showCartHandler}
+        />
+      )}
+      <Header onShowCart={showCartHandler} />
+      <main>
+        <MealList />
+      </main>
+    </CartProvider>
   );
 }
 
