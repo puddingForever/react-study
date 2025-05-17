@@ -1,8 +1,8 @@
 import { createPortal } from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { cartUIActions } from "../../store/cart-ui";
-import { BASE_URL } from "../../api/base";
 import { useState } from "react";
+import { postOrderData } from "../../api/orders";
 
 export default function Modal({ children, view }) {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ export default function Modal({ children, view }) {
   const { items: cartItems } = useSelector((state) => state.cart);
   const [notification, setNotification] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("제출");
     const formData = new FormData(e.target);
@@ -20,23 +20,14 @@ export default function Modal({ children, view }) {
       items: cartItems, // 장바구니에 있는 상품 배열
       customer,
     };
-    postOrderData(order);
+    try {
+      const result = await postOrderData(order);
+      setNotification(result.message);
+    } catch (error) {
+      setNotification(error.message);
+    }
   };
 
-  const postOrderData = async (order) => {
-    console.log(order, "order");
-    const res = await fetch(`${BASE_URL}/orders`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ order }),
-    });
-    if (!res.ok) {
-      throw new Error("주문에 실패했습니다.");
-    }
-    console.log(res, "res");
-  };
   const handleChangeModalView = () =>
     dispatch(cartUIActions.showOtherContent("checkout"));
 
@@ -44,6 +35,7 @@ export default function Modal({ children, view }) {
     <dialog className="modal" open>
       <form id="checkout-form" onSubmit={handleSubmit}>
         {children}
+        {view === "checkout" && <p>{notification}</p>}
       </form>
       <div className="modal-actions">
         <button

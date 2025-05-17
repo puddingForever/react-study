@@ -1,8 +1,12 @@
 import { useSelector } from "react-redux";
 import Input from "./common/Input";
 
+/**
+ * 사용자 데이터를 입력하는 컴포넌트
+ *
+ */
+
 export default function Checkout() {
-  //name,email,street,postal-code,city
   const totalAmount = useSelector((state) => state.cart.totalPrice);
 
   return (
