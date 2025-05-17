@@ -5,6 +5,5 @@ export const getMealsData = async () => {
   if (!res.ok) {
     throw new Error("데이터를 불러오지 못했음");
   }
-  const mealsData = await res.json();
-  return mealsData;
+  return await res.json();
 };

@@ -11,8 +11,18 @@ export default function Modal({ children, view }) {
     e.preventDefault();
     console.log("제출");
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-    console.log(data);
+    const order = Object.fromEntries(formData.entries());
+    postOrderData(order);
+  };
+  const postOrderData = async (order) => {
+    const res = await fetch(`${BASE_URL}/oreders`, {
+      method: "POST",
+      body: order,
+    });
+    if (!res.ok) {
+      throw new Error("주문에 실패했습니다.");
+    }
+    console.log(res, "res");
   };
   const handleChangeModalView = () => {
     dispatch(cartUIActions.showOtherContent("checkout"));
