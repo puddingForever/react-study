@@ -1,11 +1,9 @@
 import { useSelector } from "react-redux";
 import Input from "./common/Input";
-import { useState } from "react";
 
 export default function Checkout() {
   //name,email,street,postal-code,city
   const totalAmount = useSelector((state) => state.cart.totalPrice);
-  const [formData, useFormData] = useState();
 
   return (
     <>

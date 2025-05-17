@@ -10,6 +10,9 @@ export default function Modal({ children, view }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("제출");
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+    console.log(data);
   };
   const handleChangeModalView = () => {
     dispatch(cartUIActions.showOtherContent("checkout"));

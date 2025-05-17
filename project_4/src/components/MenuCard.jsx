@@ -20,6 +20,7 @@ export default function MenuCard({ menuData }) {
       })
     );
   };
+
   return (
     <div className="meal-item">
       <img src={`${BASE_URL}/${image}`} alt={name} />

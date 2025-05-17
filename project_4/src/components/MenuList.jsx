@@ -1,32 +1,19 @@
 import { useEffect, useState } from "react";
 import MenuCard from "./MenuCard";
-import { BASE_URL } from "../api/base";
-import Cart from "./Cart";
-import Modal from "./common/Modal";
-import { useSelector } from "react-redux";
-import Checkout from "./Checkout";
+import { getMealsData } from "../api/meals";
 
 /**
  * 메뉴 리스트를 렌더링하는 컴포넌트
- *
+ * @param {Function} getMealsData - 주문 가능한 메뉴리스트 불러오기
  */
 
 export default function MenuList() {
   //메뉴별 데이터 목록
   const [meals, setMeals] = useState([]);
+  const { mealsData } = getMealsData();
 
   //서버에서 메뉴별 데이터 불러오기
-  useEffect(() => {
-    const getMealsData = async () => {
-      const res = await fetch(`${BASE_URL}/meals`);
-      if (!res.ok) {
-        throw new Error("데이터를 불러오지 못했음");
-      }
-      const mealsData = await res.json();
-      setMeals(mealsData);
-    };
-    getMealsData();
-  }, []);
+  useEffect(() => setMeals(mealsData), []);
 
   return (
     <>
