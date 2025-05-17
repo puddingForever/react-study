@@ -4,6 +4,7 @@ const initialCartState = { items: [], totalCount: 0, totalPrice: 0 };
 const cartSlice = createSlice({
   name: "cart",
   initialState: initialCartState,
+
   //처음에 서버의 카트 데이터 불러오기 필요
   reducers: {
     addItemToCart(state, action) {

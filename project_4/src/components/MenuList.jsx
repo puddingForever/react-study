@@ -27,9 +27,9 @@ export default function MenuList() {
   return (
     <>
       <div id="meals">
-        {meals?.map((meal) => {
-          return <MenuCard key={meal.id} menuData={meal} />;
-        })}
+        {meals?.map((meal) => (
+          <MenuCard key={meal.id} menuData={meal} />
+        ))}
       </div>
     </>
   );

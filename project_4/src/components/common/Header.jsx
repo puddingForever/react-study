@@ -4,9 +4,8 @@ import { cartUIActions } from "../../store/cart-ui";
 export default function Header() {
   const dispatch = useDispatch();
   const totalItemsInCart = useSelector((state) => state.cart.totalCount);
-  const handleToggleCart = () => {
-    dispatch(cartUIActions.toggleCart());
-  };
+  const handleToggleCart = () => dispatch(cartUIActions.toggleCart());
+
   return (
     <header id="main-header">
       <div id="title">

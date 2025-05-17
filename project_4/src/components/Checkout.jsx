@@ -12,7 +12,7 @@ export default function Checkout() {
   return (
     <>
       <h2>Checkout</h2>
-      <p>Total Amount: $ {totalAmount}</p>
+      <p>Total Amount: $ {totalAmount.toFixed(2)}</p>
       <Input label="Full Name" name="name" />
       <Input label="E-Mail Address" name="email" />
       <Input label="Street" name="street" />
