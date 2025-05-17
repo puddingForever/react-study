@@ -1,35 +1,42 @@
+import { useState } from "react";
 import { createPortal } from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { cartUIActions } from "../../store/cart-ui";
-import { useState } from "react";
 import { postOrderData } from "../../api/orders";
+
+/**
+ * 장바구니 및 주문 양식(Checkout)을 표시하는 다이얼로그 모달 컴포넌트
+ *
+ * @params {string} - view 현재 보여줄 뷰 상태 ('cart' | 'checkout')
+ * @param {React.ReactNode} - 모달 내부에 렌더링할 자식 컴포넌트(<Cart />, <Checkout />)
+ */
 
 export default function Modal({ children, view }) {
   const dispatch = useDispatch();
   const handleCloseModal = () => dispatch(cartUIActions.toggleCart());
+  const handleChangeModalView = () =>
+    dispatch(cartUIActions.showOtherContent("checkout"));
   const { items: cartItems } = useSelector((state) => state.cart);
   const [notification, setNotification] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("제출");
     const formData = new FormData(e.target);
     const customer = Object.fromEntries(formData.entries());
 
     const order = {
-      items: cartItems, // 장바구니에 있는 상품 배열
+      items: cartItems,
       customer,
     };
+
     try {
       const result = await postOrderData(order);
       setNotification(result.message);
+      setTimeout(handleCloseModal, 3000);
     } catch (error) {
       setNotification(error.message);
     }
   };
-
-  const handleChangeModalView = () =>
-    dispatch(cartUIActions.showOtherContent("checkout"));
 
   return createPortal(
     <dialog className="modal" open>

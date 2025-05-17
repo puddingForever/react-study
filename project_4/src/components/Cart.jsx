@@ -17,7 +17,7 @@ export default function Cart() {
         {cartItems.map((item) => (
           <CartItem key={item.id} item={item} />
         ))}
-        <span className="cart-total">${totalAmount}</span>
+        <span className="cart-total">${totalAmount.toFixed(2)}</span>
       </ul>
     </div>
   );
