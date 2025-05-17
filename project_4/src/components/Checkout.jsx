@@ -7,7 +7,7 @@ export default function Checkout() {
 
   return (
     <>
-      <h2>Your Cart</h2>
+      <h2>Checkout</h2>
       <p>Total Amount: $ {totalAmount}</p>
       <Input label="Full Name" name="name" />
       <Input label="E-Mail Address" name="email" />

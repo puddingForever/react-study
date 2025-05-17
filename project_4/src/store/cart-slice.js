@@ -28,11 +28,11 @@ const cartSlice = createSlice({
     removeItemToCart(state, action) {
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
+      console.log("existingItem", existingItem.count);
       state.totalCount--;
       state.totalPrice = state.totalPrice - existingItem.price;
-      // 1개면 제거, 2개 이상이면 수량 -1
-      if (existingItem === 1) {
-        state.items.filter((item) => item.id !== id);
+      if (existingItem.count === 1) {
+        state.items = state.items.filter((item) => item.id !== id);
       } else {
         existingItem.count--;
         existingItem.subtotal = existingItem.subtotal - existingItem.price;
