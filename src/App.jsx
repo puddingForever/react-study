@@ -1,13 +1,7 @@
-import Header from './components/header';
-import Quiz from './components/Quiz';
+import { FoodPage } from './food/FoodPage';
 
 function App() {
-    return (
-        <div className="App">
-            <Header />
-            <Quiz />
-        </div>
-    );
+    return <FoodPage />;
 }
 
 export default App;
