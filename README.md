@@ -47,7 +47,7 @@ The `docs` directory contains systematically organized excerpts from team member
 - [Advanced React Core](docs/basics/advanced-react-core.md)
 - [Class Components](docs/basics/class-component.md)
 - [Form Handling](docs/basics/form.md)
-- [Advanced Form Handling](docs/basics/form2.md)
+- [Advanced Form Handling](docs/basics/form-advanced.md)
 - [React Router](docs/basics/react-router.md)
 
 ### React Hooks
@@ -68,9 +68,9 @@ The `docs` directory contains systematically organized excerpts from team member
 
 ### State Management
 
-- [Redux Fundamentals](docs/advanced/redux.md)
-- [Context API vs Redux](docs/advanced/context-redux.md)
-- [Redux Toolkit (RTK)](docs/advanced/rtk.md)
+- [Redux Fundamentals](docs/states/redux.md)
+- [Context API vs Redux](docs/states/context-redux.md)
+- [Redux Toolkit (RTK)](docs/states/rtk.md)
 
 ## Contributing
 
