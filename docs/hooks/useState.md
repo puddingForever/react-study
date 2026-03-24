@@ -46,6 +46,20 @@ React는 성능 최적화를 위해 useState의 상태 업데이트를 비동기
 
    - 여러 번의 상태 업데이트를 한 번의 렌더링으로 묶어서 처리
    - **여러 번 setState 호출해도 리렌더링 1번만 발생**
+```jsx
+
+const [count,setCount] = useState(0);
+
+function handleCount(){
+   setCount(count + 1);
+   setCount(count + 1);
+   setCount(count + 1);
+}
+
+// count가 3으로 되리라 예상하지만,
+// 리엑트는 업데이트를 배칭시키기 때문에 count는 1이다
+// count3을 원하면 setCount(prev => prev+1) 로 작성해야한다. 
+```
 
 2. **렌더링의 일관성 유지**
    - 상태 변경이 즉시 반영되지 않고, React가 상태 변경을 예약
