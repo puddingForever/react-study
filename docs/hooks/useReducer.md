@@ -63,6 +63,7 @@ function reducer(state, action) {
 
 - **useReducer**가 반환하는 두 번째 값
 - 액션을 **reducer** 함수로 전달함
+- dispatch(action) → reducer(state, action) → 새로운 state 반환
 
 ```js
 const [state, dispatch] = useReducer(reducer, { count: 0 });
