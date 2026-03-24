@@ -199,6 +199,22 @@ function ProductDetailPage() {
   // ...
 }
 ```
+products-loader 라는 id를 가진 라우트의 loader가 가져온 데이터를 사용한다. 
+
+```jsx 
+{
+  path : "/products",
+  id: "products-loader",
+  loader:loadProducts // 상품목록가져옴 
+  children : [
+    {
+      path : ":productId",
+      element: <ProductDetailPage /> 
+   }]
+
+}
+```
+
 
 ## 5. 데이터 제출 (Submission)
 
