@@ -84,7 +84,7 @@ function CounterProvider({ children }) {
 
 function useCounter() {
   const context = useContext(CounterContext);
-  if (context) throw new Error('useCounter must be iwthin a CounterProvider');
+  if (!context) throw new Error('useCounter must be iwthin a CounterProvider');
   return context;
 }
 ```
