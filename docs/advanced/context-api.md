@@ -87,6 +87,23 @@ function useCounter() {
   if (!context) throw new Error('useCounter must be iwthin a CounterProvider');
   return context;
 }
+
+
+function App() {
+  return (
+    <div>
+      <CounterDisplay />  {/* 여기서 useCounter() 쓰면 에러 발생! Provider 없음 */}
+    </div>
+  );
+}
+
+function AppWithProvider() {
+  return (
+    <CounterProvider>
+      <CounterDisplay />  {/* 여기서는 정상 작동 */}
+    </CounterProvider>
+  );
+} 
 ```
 
 ```js
@@ -110,3 +127,18 @@ export function counterReducer(state, action) {
   }
 }
 ```
+**useContext**
+- useContext는 React의 Hook 중 하나로, Context의 현재값을 가져오는 역할을 한다.
+- Content.Provider로 값을 내려주면, 그 하위 모든 컴포넌트에서 값을 가져올 수 있다.
+```javascript
+ const MyContext = createContext('default value');
+```
+
+- useContext를 쓰면 해당 Context의 가장 가까운 Provider가 가진 값을 가져온다.
+```javascript
+const value = useContext(MyContext);
+console.log(value); // Provider가 준값 
+```
+- 만약 Provider가 없으면 , createContext에서 지정한 default value를 가져온다.
+
+
