@@ -149,6 +149,6 @@ function DeleteConfirmation({ onConfirm, onCancel }) {
 
 ### 정리
 
-- useEffect는 DOM이 렌더링된 뒤에 실행됨
+- useEffect는 DOM이 렌더링된 뒤에 실행됨 (useState는 랜더링과정에 실행됨) 
 - 의존성 배열을 잘 설정하면 불필요한 실행을 막고 성능 향상
 - 클린업 함수는 리소스 정리, 메모리 누수 방지 등에 꼭 필요함
