@@ -123,6 +123,7 @@ function ProductDetailPage() {
   return <h1>제품 상세: {productId}</h1>;
 }
 ```
+/products/:productId 에서 productId 값을 가져온다. 
 
 ### 3.3 오류 처리와 errorElement
 
